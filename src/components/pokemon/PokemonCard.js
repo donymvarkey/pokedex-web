@@ -60,7 +60,7 @@ export default class PokemonCard extends Component {
             <div className="col-md-3 col-sm-6 mb-5" >
                 <StyledLink to={`pokemon/${this.state.pokemonIndex}`}>
                     <Card className="card">
-                        <h5 className="card-header float-right"><span className="badge badge-dark" >#{this.state.pokemonIndex}</span></h5>
+                        <h5 className="card-header"><span className="badge badge-dark float-right" >#{this.state.pokemonIndex}</span></h5>
                         {
                             this.state.imageLoading ? (
                                 <img src={spinner} style={{width: "5em", height: "5em"}} className="card-img-top mx-auto rounded mt-2 d-block" />

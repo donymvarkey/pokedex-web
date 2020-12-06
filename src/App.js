@@ -6,7 +6,6 @@ import './App.css';
 import NavBar from './components/layout/NavBar'
 import Dashboard from './components/layout/Dashboard';
 import Pokemon from './components/pokemon/Pokemon';
-import backgroundImage from './components/assets/pokedex.png'
 
 class App extends Component {
     render () {
