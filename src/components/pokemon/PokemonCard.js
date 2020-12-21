@@ -63,7 +63,7 @@ export default class PokemonCard extends Component {
                         <h5 className="card-header"><span className="badge badge-dark float-right" >#{this.state.pokemonIndex}</span></h5>
                         {
                             this.state.imageLoading ? (
-                                <img src={spinner} style={{width: "5em", height: "5em"}} className="card-img-top mx-auto rounded mt-2 d-block" />
+                                <img alt="spinner" src={spinner} style={{width: "5em", height: "5em"}} className="card-img-top mx-auto rounded mt-2 d-block" />
                             ) : null
                         }
                         <Sprites 

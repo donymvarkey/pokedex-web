@@ -2,30 +2,54 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import PokemonCard from './PokemonCard';
 import spinner from '../assets/spinner.gif'
+import SearchBar from '../layout/SearchBar'
 
 export default class PokemonList extends Component {
     state = {
-        url: "https://pokeapi.co/api/v2/pokemon?offset=0&limit=30",
-        pokemon: null
+        url: "https://pokeapi.co/api/v2/pokemon?offset=0&limit=10",
+        pokemon: null,
+        inputQuery: ""
     }    
     async componentDidMount() {
         let res = await axios.get(this.state.url);
         this.setState({
             pokemon: res.data['results']
-        })
-        
+        })  
     }
-    // async getNextUrl() {
-    //     let res = await axios.get(this.state.nextUrl);
-    //     this.setState({
-    //         pokemon: res.data['results'],
-    //         url: res.data.next,
-    //         prevUrl: res.data.previous
-    //     })
-    // }
+
+    getQuery = (query) => {
+        let formattedQuery = query.toLowerCase()
+        this.setState({
+            inputQuery: formattedQuery
+        })
+    }
+
+    getPokemon = (event) => {
+        event.preventDefault()
+        axios.get(`https://pokeapi.co/api/v2/pokemon/${this.state.inputQuery}`)
+        .then((res) => {
+            // console.log(res.data)
+            let pokemonUrl = `https://pokeapi.co/api/v2/pokemon/${res.data.id}/`
+            let results = [];
+            results.push({
+                name: res.data.name,
+                url: pokemonUrl
+            })
+
+            this.setState({
+                pokemon: results
+            })
+        })
+    }
+    
     render() {
         return (
             <React.Fragment>
+                <div className="row">
+                    <div className="col">
+                        <SearchBar getQueryFromInput={this.getQuery} searchPokemon={this.getPokemon} />
+                    </div>
+                </div>
                 {
                     this.state.pokemon ? (
                         <div className="row mt-3">
@@ -40,31 +64,9 @@ export default class PokemonList extends Component {
                             }
                         </div>
                     ) : (
-                        <img src={spinner} style={{width: '10em', height: '10em'}} className="mx-auto rounded mt-5 ml-5" />
+                        <img alt="spinner" src={spinner} style={{width: '10em', height: '10em'}} className="mx-auto rounded mt-5 ml-5" />
                     )
                 }
-                <div className="row mb-3">
-                    <div className="col-md-6 ">
-                        {
-                            this.state.prevUrl ? (
-                                <button className="btn float-right" style={{backgroundColor: "#FFEBEE"}} >Prev</button>
-                            ) : (
-                                <button className="btn float-right disabled" style={{backgroundColor: "#FFEBEE"}} >Prev</button>
-                            )
-                        }
-                        
-                    </div>
-                    <div className="col-md-6 ">
-                        {
-                            this.state.url ? (
-                                <button className="btn float-left" style={{backgroundColor: "#FFEBEE"}} onClick={this.getNextUrl} >Next</button>
-                            ) : (
-                                <button className="btn float-left disabled" style={{backgroundColor: "#FFEBEE"}} >Next</button>
-                            )
-                        }
-                        
-                    </div>
-                </div>
             </React.Fragment>
         );
     }

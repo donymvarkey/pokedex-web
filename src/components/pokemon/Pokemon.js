@@ -1,3 +1,4 @@
+/* eslint-disable default-case */
 import React, { Component } from 'react';
 import axios from 'axios';
 
@@ -219,7 +220,7 @@ export default class Pokemon extends Component {
                                                 style={{width: `${this.state.stats.hp}%`, backgroundColor: `#${STAT_COLORS['hp']}`}}
                                                 aria-valuenow="25"
                                                 aria-valuemin="0"
-                                                aria-valuemax="100"
+                                                aria-valuemax="200"
                                                 >
                                                     <small>{this.state.stats.hp}</small>
                                             </div>
@@ -236,7 +237,7 @@ export default class Pokemon extends Component {
                                                 style={{width: `${this.state.stats.attack}%`, backgroundColor: `#${STAT_COLORS['attack']}`}}
                                                 aria-valuenow="25"
                                                 aria-valuemin="0"
-                                                aria-valuemax="100"
+                                                aria-valuemax="200"
                                                 >
                                                     <small>{this.state.stats.attack}</small>
                                             </div>
@@ -253,7 +254,7 @@ export default class Pokemon extends Component {
                                                 style={{width: `${this.state.stats.defense}%`, backgroundColor: `#${STAT_COLORS['defense']}`}}
                                                 aria-valuenow="25"
                                                 aria-valuemin="0"
-                                                aria-valuemax="100"
+                                                aria-valuemax="200"
                                                 >
                                                     <small>{this.state.stats.defense}</small>
                                             </div>
@@ -270,7 +271,7 @@ export default class Pokemon extends Component {
                                                 style={{width: `${this.state.stats.speed}%`, backgroundColor: `#${STAT_COLORS['speed']}`}}
                                                 aria-valuenow="25"
                                                 aria-valuemin="0"
-                                                aria-valuemax="100"
+                                                aria-valuemax="200"
                                                 >
                                                     <small>{this.state.stats.speed}</small>
                                             </div>
@@ -287,7 +288,7 @@ export default class Pokemon extends Component {
                                                 style={{width: `${this.state.stats.specialAttack}%`, backgroundColor: `#${STAT_COLORS['specialAttack']}`}}
                                                 aria-valuenow="25"
                                                 aria-valuemin="0"
-                                                aria-valuemax="100"
+                                                aria-valuemax="200"
                                                 >
                                                     <small>{this.state.stats.specialAttack}</small>
                                             </div>
@@ -304,7 +305,7 @@ export default class Pokemon extends Component {
                                                 style={{width: `${this.state.stats.specialDefense}%`, backgroundColor: `#${STAT_COLORS['specialDefense']}`}}
                                                 aria-valuenow="25"
                                                 aria-valuemin="0"
-                                                aria-valuemax="100"
+                                                aria-valuemax="200"
                                                 >
                                                     <small>{this.state.stats.specialDefense}</small>
                                             </div>
@@ -394,7 +395,7 @@ export default class Pokemon extends Component {
                                                 style={{width: `${this.state.catchRate}%`}}
                                                 aria-valuenow="25"
                                                 aria-valuemin="0"
-                                                aria-valuemax="100"
+                                                aria-valuemax="200"
                                                 >
                                                     <small>{this.state.catchRate}</small>
                                             </div>
@@ -430,7 +431,7 @@ export default class Pokemon extends Component {
                                                 }}
                                                 aria-valuenow="15"
                                                 aria-valuemin="0"
-                                                aria-valuemax="100"
+                                                aria-valuemax="200"
                                             >
                                                 <small>{this.state.genderRatioFemale} ♀️</small>
                                             </div>
@@ -443,7 +444,7 @@ export default class Pokemon extends Component {
                                                 }}
                                                 aria-valuenow="30"
                                                 aria-valuemin="0"
-                                                aria-valuemax="100"
+                                                aria-valuemax="200"
                                             >
                                                 <small>{this.state.genderRatioMale} ♂️</small>
                                             </div>
