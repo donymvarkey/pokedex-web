@@ -6,14 +6,18 @@ import SearchBar from '../layout/SearchBar'
 
 export default class PokemonList extends Component {
     state = {
-        url: "https://pokeapi.co/api/v2/pokemon?offset=0&limit=30",
+        url: "https://pokeapi.co/api/v2/pokemon?offset=0&limit=20",
         pokemon: null,
-        inputQuery: ""
+        inputQuery: "",
+        prevUrl: null,
+        nextUrl: null
     }    
     async componentDidMount() {
         let res = await axios.get(this.state.url);
         this.setState({
-            pokemon: res.data['results']
+            pokemon: res.data['results'],
+            prevUrl: res.data.previous,
+            nextUrl: res.data.next
         })  
     }
 
@@ -39,6 +43,30 @@ export default class PokemonList extends Component {
             this.setState({
                 pokemon: results
             })
+        })
+    }
+
+    loadPrevPokemonPage = () => {
+        axios.get(this.state.prevUrl)
+        .then(res => {
+            // console.log(res.data['results'])
+            this.setState({
+                pokemon: res.data['results'],
+                prevUrl: res.data.previous,
+                nextUrl: res.data.next
+            })  
+        })
+    }
+
+    loadNextPokemonPage = () => {
+        axios.get(this.state.nextUrl)
+        .then(res => {
+            // console.log(res.data['results'])
+            this.setState({
+                pokemon: res.data['results'],
+                prevUrl: res.data.previous,
+                nextUrl: res.data.next
+            })  
         })
     }
     
@@ -67,6 +95,24 @@ export default class PokemonList extends Component {
                         <img alt="spinner" src={spinner} style={{width: '10em', height: '10em'}} className="mx-auto rounded mt-5 ml-5" />
                     )
                 }
+                <div className="row mb-3">
+                    <div className="col-md-6 text-center">
+                        {
+                            (this.state.prevUrl) ?    
+                                <button className="btn btn-light" type="submit" style={{width: '100px'}} onClick={this.loadPrevPokemonPage}>Prev</button>
+                            : 
+                                <button className="btn btn-light disabled" type="submit" style={{width: '100px'}}>Prev</button>   
+                        }
+                    </div>
+                    <div className="col-md-6 text-center">
+                        {
+                            (this.state.nextUrl) ?    
+                                <button className="btn btn-light" type="submit" style={{width: '100px'}} onClick={this.loadNextPokemonPage}>Next</button>
+                            : 
+                                <button className="btn btn-light disabled" type="submit" style={{width: '100px'}}>Next</button>   
+                        }
+                    </div>
+                </div>
             </React.Fragment>
         );
     }

@@ -12,6 +12,7 @@ export default function SearchBar(props) {
             <div className="float-right">
                 <form className="form-inline" onSubmit={handleSubmit}>
                     <input className="form-control mr-sm-2" type="text" placeholder="Search Pokemon" onChange={handleChange}  />
+                    <button className="btn btn-light" type="submit">Search</button>
                 </form>
             </div>
         </div>
