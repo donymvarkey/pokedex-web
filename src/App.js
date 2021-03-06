@@ -10,7 +10,7 @@ import Pokemon from './components/pokemon/Pokemon';
 class App extends Component {
     render () {
       return(
-        <Router history={BrowserHistory}>
+        <Router>
           <div className="App">
             <NavBar />
             <div className="container">
