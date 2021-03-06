@@ -1,6 +1,7 @@
 /* eslint-disable default-case */
 import React, { Component } from 'react';
 import axios from 'axios';
+import {useHistory} from 'react-router-dom';
 
 const TYPE_COLORS = {
     bug: 'b1c12e',
@@ -34,6 +35,7 @@ const STAT_COLORS = {
 }
 
 export default class Pokemon extends Component {
+    
     state = {
         name: '',
         pokemonIndex: '',
@@ -175,6 +177,9 @@ export default class Pokemon extends Component {
     render() {
         return (
             <div className="col mt-3">
+                <div>
+                    <button className="btn btn-light mb-2" >Back</button>
+                </div>
                 <div className="card">
                     <div className="card-header">
                         <div className="row">

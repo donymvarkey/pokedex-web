@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {HashRouter as Router, Route, Switch} from 'react-router-dom'
+import {BrowserHistory} from 'react-router/lib/BrowserHistory'
 import './App.css';
 
 import NavBar from './components/layout/NavBar'
@@ -10,7 +11,7 @@ import Pokemon from './components/pokemon/Pokemon';
 class App extends Component {
     render () {
       return(
-        <Router>
+        <Router history={BrowserHistory}>
           <div className="App">
             <NavBar />
             <div className="container">
