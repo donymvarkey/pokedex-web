@@ -1,3 +1,7 @@
+
+[![Infrastructure Tests](https://www.bridgecrew.cloud/badges/github/donymvarkey/pokedex-web/general)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=donymvarkey%2Fpokedex-web&benchmark=INFRASTRUCTURE+SECURITY)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
