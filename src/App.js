@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {HashRouter as Router, Route, Switch} from 'react-router-dom'
-import {BrowserHistory} from 'react-router/lib/BrowserHistory'
 import './App.css';
 
 import NavBar from './components/layout/NavBar'
